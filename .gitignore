@@ -103,7 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
-
+.idea
 gulpfile.js
 package-lock.json
 package.json

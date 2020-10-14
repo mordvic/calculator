@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Calculator</title>
-    <script src="/calculator/main.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <div class="calculator">
     <div class="calculator-output">
@@ -15,8 +15,8 @@
     </div>
     <button data-all-clear>AC</button>
     <button data-delete>DEL</button>
-    <button data-operation>x<sup>2</sup></button>
-    <button data-operation>&radic;2</button>
+    <button data-operation="^">x<sup>y</sup></button>
+    <button data-operation="sqrt">&radic;x</button>
     <button data-number>1</button>
     <button data-number>2</button>
     <button data-number>3</button>
@@ -28,11 +28,13 @@
     <button data-number>7</button>
     <button data-number>8</button>
     <button data-number>9</button>
-    <button data-number>+</button>
-    <button data-operation>.</button>
+    <button data-operation>+</button>
+    <button data-number>.</button>
     <button data-number>0</button>
-    <button data-equals>=</button>
+    <button data-operation="+/-">+/-</button>
     <button data-operation>-</button>
+    <button data-equals>=</button>
+
 </div>
 
 <body>
