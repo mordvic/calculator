@@ -31,6 +31,15 @@ class Calculator {
     }
   }
 
+  sqrt () {
+    if (this.currentOperand !== "" && this.currentOperand > 0) {
+      return  this.currentOperand = Math.sqrt(this.currentOperand);
+    } else {
+      this.showError = true;
+      this.resetInput = true;
+    }
+  }
+
   appendNumber(number) {
     if (number === "." && this.currentOperand.toString().includes(number)) return;
 
@@ -62,7 +71,7 @@ class Calculator {
       this.compute();
     }
 
-    if (this.previousOperand !== "" && this.operation) {
+    if (this.previousOperand !== "" && this.operation && this.currentOperand === DEFAULT_VALUE) {
       this.operation = operation;
       return;
     }
@@ -71,10 +80,6 @@ class Calculator {
     this.previousOperand = this.currentOperand;
     this.currentOperand = DEFAULT_VALUE;
 
-    if(this.operation === "sqrt"){
-      this.currentOperand = 0;
-      this.compute();
-    }
   }
 
   compute() {
@@ -108,15 +113,6 @@ class Calculator {
         computation = Math.pow(previousValue, currentValue);
         computationPrecision = previousPrecision * currentPrecision;
         break;
-      case "sqrt":
-        if (previousValue < 0) {
-          this.showError = true;
-          this.resetInput = true;
-          return;
-        }
-        computation = Math.sqrt(previousValue);
-        break;
-
       default:
         return;
     }
@@ -190,7 +186,7 @@ operationButtons.forEach((button) => {
     if (operation === "^") {
       calc.chooseOperation(operation);
     } else if (operation === "sqrt") {
-      calc.chooseOperation(operation);
+      calc.sqrt();
     } else if (operation === "+/-"){
       calc.negative()
     }
